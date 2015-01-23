@@ -1,0 +1,16 @@
+
+<p>Add a new Client:</p>
+
+<form action="/clients" method="post">
+  <label for="name">Client Name:</label>
+  <input id="name" name="name" type="text">
+  <label for="appointment">Appointment Date:</label>
+  <input id="appointment" name="appointment" type="text">
+  <input id = "stylist_id" name="stylist_id" type = "hidden" value = "<%= @stylist.id() %>">
+  <button type="submit" class="btn btn-danger">Add Appointment</button>
+</form>
+
+<p> List of clients for Stylist <%= @stylist.name %>: </p>
+<% @stylist.clients.each do |client| %>
+  <li><%= client.name %>   <%= client.appointment %></li>
+<% end %>
